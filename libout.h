@@ -2,12 +2,24 @@ char* thing = (char*) 0xB8000;
 unsigned short pointerx = 0;
 unsigned short pointery = 0;
 
+char keybuffer[500];
+short size = 0;
+
+
 
 
 void writechar(int x, int y, char c, int color) {
     int start = 2 * x + 160 * y;
     thing[start] = c;
     thing[start + 1] = color;
+}
+
+void print2(char* str) {
+	unsigned short* VideoMemory = (unsigned short*)0xb8000;
+
+	for(int i = 0; str[i] != '\0'; ++i) {
+		VideoMemory[i] = (VideoMemory[i] & 0xFF00) | str[i];
+	}
 }
 
 void clear() {
@@ -18,10 +30,15 @@ void clear() {
     }
 }
 
+void fill(unsigned short color) {
+    for (int x = 0; x < 80; x++) {
+        for (int y = 0; y < 25; y++) {
+            writechar(x, y, ' ', color);
+        }
+    }
+}
 
-void showtext(char* thestr) {
-	int thelen = -1;
-	int color = 0x0F;
+void print1(char* thestr, int thelen, int color) {
     if (thelen < 0) {
         int i = 0;
 
