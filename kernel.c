@@ -16,7 +16,7 @@ int osmain()
 ## About ##
 - Name : DEVbash
 - Version : 0.3.1
-- Creators : Diary (Tyler Jarisson)
+- Creators : Diary (Tyler)
 - Description: DEVbash is an open source OS (Operating System) That is currently in its BETA stages. It is currently not done yet.
 #############
 */
