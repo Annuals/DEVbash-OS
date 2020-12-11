@@ -7,4 +7,4 @@ gcc -m32 -c ./OS/kernel.c -o ./OS/kernelc.o
 ld -m elf_i386 -T link.ld -o ./OS/kernel.bin ./OS/kernelasm.o ./OS/kernelc.o
 
 
-qemu-system-i386 -kernel kernel.bin
+qemu-system-i386 -kernel ./OS/kernel.bin
